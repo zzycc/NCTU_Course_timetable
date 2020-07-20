@@ -1,0 +1,1 @@
+ls -AlR | sort -nrk 5 | awk 'BEGIN {file = 0; dir = 0; size = 0; list = 1} END {printf("DIR NUM : %s\nFILE NUM: %s\nTOTAL SIZE: %s \n",dir,file,size)} /^-/ {size += $5; file++; if(list < 6) printf("%s:%s %s\n",list++,$5,$9)} /^d/ {dir++}'
